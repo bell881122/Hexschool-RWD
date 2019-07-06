@@ -1,0 +1,1125 @@
+@import 'reset';
+
+@mixin pad {
+    @media(max-width: 768px) {
+        @content
+    }
+}
+
+;
+
+@mixin pad-up {
+    @media(min-width: 769px) {
+        @content
+    }
+}
+
+;
+
+@mixin iphone5 {
+    @media(max-width: 576px) {
+        @content
+    }
+}
+
+;
+
+@mixin iphone5-up {
+    @media(min-width: 577px) {
+        @content
+    }
+}
+
+;
+
+
+
+//Layout
+
+body {
+    background: #020000;
+    color: #3D1101;
+    font-size: 15.5px;
+    line-height: 24px;
+
+}
+
+.wrap {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 44px;
+}
+
+h3 {
+    font-size: 24px;
+
+}
+
+h4 {
+    font-size: 21px;
+    line-height: 32px;
+
+}
+
+h5 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.cleafix {
+    clear: both;
+}
+
+//header
+.header {
+    position: relative;
+    background: url(../img/header_desktop.png);
+    background-position: center;
+    height: 420px;
+
+    @include iphone5 {
+        background: url(../img/header_mobile.png);
+        background-position: center;
+
+    }
+
+}
+
+.nav {
+    height: 56px;
+    background: #4a4a4a;
+
+    h1 {
+        float: left;
+        margin: 18px 18px 0px 18px;
+
+        a {
+            background: url(../img/logo_w.png);
+            width: 120px;
+            height: 24px;
+            text-indent: -120px;
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+
+            @include pad {
+                margin: 0px;
+            }
+        }
+    }
+
+    ul {
+        float: right;
+        height: 66px;
+        box-sizing: border-box;
+    }
+
+    li {
+        display: inline;
+    }
+
+    li a {
+        color: #fff;
+        float: left;
+        padding: 18px 14px;
+        margin: 0px 11px;
+    }
+
+    li a:hover {
+        color: #626262;
+    }
+
+    .showmenu {
+        display: none;
+    }
+
+    @include iphone5 {
+
+        position: relative;
+
+        ul {
+            height: auto;
+            margin: 0px;
+        }
+
+        .showmenu {
+            width: 45px;
+            display: block;
+            margin: 10px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        .menu {
+            //隱藏選單開始
+            max-height: 0px;
+            overflow: hidden;
+            //隱藏選單結束
+            transition: max-height 2s;
+            margin-top: 1px;
+            //絕對定位疊在網頁上
+            position: absolute;
+            z-index: 100;
+            //header 高度
+            top: 56px;
+            left: 0px;
+            right: 0px;
+            margin: 0px;
+
+            li {
+                display: block;
+                background: #626262;
+                border: 1px solid #4a4a4a;
+                color: #fff;
+
+            }
+
+
+            li:hover {
+                background: #4a4a4a;
+            }
+
+            li a {
+                font-weight: bold;
+                display: block;
+                float: none;
+                color: #fff;
+            }
+
+            li a:hover {
+                color: #fff;
+                border-bottom: 0px;
+            }
+        }
+    }
+
+
+}
+
+.menu-show .menu {
+    max-height: 500px;
+}
+
+//banner
+
+.banner {
+    text-align: center;
+    color: #fff;
+
+    div {
+        background: rgba(0, 0, 0, 0.35);
+        max-width: 460px;
+        height: 152px;
+        margin: 55px auto 0 auto;
+
+        h2 {
+            padding: 15px 0px;
+        }
+
+        @include iphone5 {
+            max-width: 310px;
+            height: 194px;
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+
+
+}
+
+// footer
+
+.footer {
+    background: #efe9e7;
+    height: 250px;
+    box-sizing: border-box;
+    font-size: 16px;
+
+    .information {
+        float: left;
+        width: 31%;
+        margin: 50px 1.5% 0px 0.5%;
+
+    }
+
+    ul {
+        list-style-type: disc;
+        text-indent: -8px;
+        padding-left: 22px;
+    }
+
+    img {
+        width: 100%;
+
+    }
+
+    .footer-logo {
+        text-align: right;
+
+        div {
+            margin-bottom: 20px;
+        }
+
+    }
+
+    span {
+        font-size: 36px;
+        margin: 0px 5px;
+
+    }
+
+    @media (max-width:768px) {
+        height: 330px;
+
+        .information {
+            width: 47%;
+            margin: 50px 1.5% 45px .5%;
+        }
+
+        .footer-logo {
+            float: right;
+            text-align: left;
+            width: 100%;
+            margin: 0px 1.5% 15px .5%;
+
+            div {
+                float: right;
+            }
+
+            img {
+                width: 245px;
+            }
+
+            .link {
+                box-sizing: border-box;
+                padding-top: 16px;
+                margin: 0px 15px;
+
+            }
+
+
+        }
+
+    }
+
+    @include iphone5 {
+
+        height: 380px;
+
+        .information {
+            width: 100%;
+            margin: 40px 0 -20px 0;
+        }
+
+        .footer-logo {
+            div {
+                float: left;
+
+                img {
+                    display: none;
+                }
+
+            }
+
+            .link {
+                margin-left: 0px;
+                padding-top: 10px;
+
+            }
+
+        }
+
+
+    }
+}
+
+.content {
+    background: #efe9e7;
+}
+
+//index
+
+.feature {
+
+    h4,
+    h5 {
+        text-align: center;
+    }
+
+    .dec {
+        display: flex;
+        justify-content: center;
+        padding: 25px 0;
+        position: relative;
+    }
+
+    .dec::before {
+        content: " ";
+        position: absolute;
+        height: 1px;
+        top: 53px;
+        width: 80%;
+        right: 10%;
+        left: 10%;
+        border-bottom: 1px solid #000;
+    }
+
+    .dec-text {
+        box-sizing: border-box;
+        position: absolute;
+        background-color: #efe9e7;
+        width: 230px;
+        z-index: 100;
+    }
+
+    @media (max-width: 500px) {
+        .dec::before {
+            display: none;
+        }
+    }
+
+
+    ul {
+        margin-top: 65px;
+    }
+
+    li {
+        float: left;
+        width: 28%;
+        margin: 0 2%;
+    }
+
+    h5 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        width: 85%;
+        margin: 0 7.5%;
+    }
+
+
+    @include iphone5 {
+        text-align: justify;
+
+        li {
+            width: 90%;
+            margin: 0 4%;
+        }
+
+
+        img {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        h5 {
+            margin: 15px 0px;
+        }
+
+        p {
+            margin-bottom: 25px;
+        }
+    }
+
+}
+
+.chef-info {
+    height: 460px;
+    margin-top: 50px;
+    background: #3D1101;
+    color: #fff;
+
+    .chef-photo {
+        width: 45%;
+        height: 100%;
+        float: left;
+        margin-left: 4%;
+        background: url(../img/main_chef_brown.png);
+        background-position: right;
+
+    }
+
+    .chef {
+        float: right;
+        padding: 20px 0px;
+        width: 44%;
+        margin: 2.5% 4% 0px 2%;
+
+        h3 {
+            font-size: 22px;
+            margin: 5px 0px;
+        }
+
+    }
+
+    @include pad {
+        height: auto;
+
+        .chef-photo {
+            height: 460px;
+            float: none;
+            background-size: cover;
+            background-position: top;
+            width: 85%;
+            margin-left: 7.5%;
+            margin-right: 7.5%;
+        }
+
+        .chef {
+            float: none;
+            width: 85%;
+            margin-left: 7.5%;
+            margin-right: 7.5%;
+            padding-bottom: 30px;
+
+        }
+    }
+
+    @include iphone5 {
+        .chef-photo {
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+
+
+    }
+}
+
+.index-part3 {
+    margin-top: 50px;
+
+
+    h3 {
+        text-align: center;
+        margin: 0 0 30px 0;
+    }
+
+    ul {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    li {
+        float: left;
+        width: 30%;
+        margin: 0 1.6%;
+    }
+
+    img {
+        float: left;
+    }
+
+    h5 {
+        padding: 25px 0px 30px 80px;
+    }
+
+    .avatar-name {
+        text-align: right;
+    }
+
+    @media (max-width:650px) {
+        li {
+            float: none;
+            width: 75%;
+            margin: 20px 12.5%;
+        }
+    }
+}
+
+.index-map {
+    padding-top: 50px;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    background: #FAFAFA;
+
+    h3 {
+        text-align: center;
+        margin: 0 0 30px 0;
+    }
+
+    .map {
+        width: 44.5%;
+        height: 440px;
+        margin: 0 2.5% 0 4%;
+        box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .map-form {
+        float: right;
+        width: 45%;
+        margin: 0px 4% 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 19px;
+
+    }
+
+    label,
+    input {
+        width: 100%;
+    }
+
+    input {
+        box-sizing: border-box;
+        height: 40px;
+        padding: 0px 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border: 1px solid #CCCCCC;
+    }
+
+
+    input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        vertical-align: -20%
+    }
+
+    input[type="submit"] {
+        width: 80px;
+        background: #F56C23;
+        color: #fff;
+    }
+
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+        background: rgb(187, 85, 30);
+        cursor: pointer;
+    }
+
+
+    a {
+        padding: 9px 23.5px;
+        background: gray;
+        color: #fff;
+        font-size: 17px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        vertical-align: -8%;
+    }
+
+    a:hover,
+    a:focus {
+        background: rgb(70, 70, 70);
+    }
+
+    .submit-group {
+        float: right;
+    }
+
+    @media (max-width:700px) {
+        .map {
+            width: 92%;
+            height: 300px;
+            margin: 0 4%;
+        }
+
+        .map-form {
+            float: none;
+            width: 90%;
+            margin: 15px 5%;
+        }
+
+    }
+}
+
+
+// cart
+
+.cart {
+    padding-top: 50px;
+    height: 650px;
+
+    a {
+        color: #3D1101;
+    }
+
+    .cart-menu {
+        float: left;
+        width: 22%;
+        height: 500px;
+        margin: 0 3% 0 0;
+
+        h5 {
+            margin-bottom: 25px;
+        }
+
+        i {
+            font-size: 28px;
+            margin-right: 8px;
+        }
+
+        li {
+            border-bottom: 1px solid #3D1101;
+        }
+
+        a {
+            display: block;
+            padding: 5px 10px;
+        }
+
+        a:hover {
+            color: #fff;
+            background: #3D1101;
+        }
+
+    }
+
+    .items-list {
+
+        text-align: center;
+        line-height: 16px;
+
+        .item {
+            position: relative;
+        }
+
+        li {
+            float: left;
+            width: 22.5%;
+            height: 271px;
+            margin: 0px 1% 20px 1%;
+            box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.30);
+        }
+
+        .item-photo {
+
+            height: 120px;
+        }
+
+        h5 {
+            margin-top: 15px;
+        }
+
+        small {
+            display: block;
+            width: 85%;
+            margin: 0px auto;
+            font-size: 13px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        hr {
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 18px;
+            border: .5px solid #3D1101;
+        }
+
+        .price {
+            font-size: 20px;
+
+            i {
+                font-weight: bolder;
+
+            }
+        }
+
+        a {
+            display: block;
+            width: 85%;
+            padding: 5px 0px;
+            margin: 10px auto;
+            color: #FF5E45;
+            border: 2px solid #FF5E45;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+        }
+
+        a:hover {
+            color: #fff;
+            background: #FF5E45;
+        }
+
+        span {
+            font-size: 22px;
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .fa-heart:hover {
+            font-weight: bold;
+        }
+    }
+
+    @include pad {
+        height: 680px;
+
+
+        .cart-menu {
+            width: 30%;
+            margin: 0 4% 0 0;
+
+        }
+
+        .items-list li {
+            width: 30.5%;
+        }
+    }
+
+}
+
+
+.search {
+    float: left;
+    width: 43%;
+    position: relative;
+
+    input {
+        width: 100%;
+        height: 32px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        border: 2px solid #3D1101;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+
+
+
+    }
+
+    a {
+        position: absolute;
+        background: #3D1101;
+        color: #fff;
+        padding: 4px 7px 4px 7px;
+        top: 0;
+        right: 0px;
+
+    }
+
+    a:hover {
+        color: #626262;
+    }
+
+    @include pad {
+        width: 63%;
+
+    }
+}
+
+.pay {
+    float: left;
+    width: 29%;
+    text-align: right;
+    margin: 5px 2.5% 30px 0;
+    font-size: 20px;
+
+    a:hover {
+        color: #F56C23;
+    }
+
+    @include pad {
+        float: left;
+        width: 64%;
+        margin: 20px 1.5% 20px 0%;
+        text-align: left;
+
+    }
+}
+
+
+
+
+@include iphone5 {
+    .cart {
+        height: 880px;
+
+        .cart-menu {
+            float: none;
+            width: 100%;
+            height: auto;
+            margin: 0 3% 0 0;
+
+            h5 {
+                text-align: center;
+            }
+
+        }
+
+        .search,
+        .pay {
+            float: none;
+            display: inline-block;
+        }
+
+        .search {
+            width: 70%;
+            margin-top: 20px;
+        }
+
+        .pay {
+            text-align: right;
+            width: 26%;
+            margin: 0;
+        }
+
+        .items-list {
+            margin-top: 30px;
+            padding-bottom: 50px;
+        }
+
+        .items-list li {
+            width: 47%;
+            margin: 0 1.5% 30px 1.5%;
+        }
+
+        @media (max-width: 400px) {
+            height: auto;
+
+            .search {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .pay {
+                width: 100%;
+                margin: 20px 0 0 0;
+            }
+
+            .items-list li {
+                float: none;
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+        }
+
+    }
+
+}
+
+
+.article {
+    position: relative;
+    overflow: hidden;
+}
+
+.article .flag {
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 85px;
+    background-color: #FF5722;
+    font-size: 12px;
+    color: #fff;
+}
+
+.article .flag-right {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: -20px;
+    top: 12px;
+}
+
+
+
+// login/signin page
+
+.login-content {
+    padding: 50px 0;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 240px;
+        height: 48px;
+        margin-bottom: 5px;
+
+    }
+
+    h5,
+    img {
+        text-align: center;
+
+    }
+
+    h5 {
+        font-weight: bold;
+    }
+
+
+}
+
+
+.signin-box,
+.login-box {
+    display: none;
+    margin: 20px auto;
+    padding: 30px 3%;
+    border-top: 3px solid #F56C23;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+.signin-box {
+    max-width: 620px;
+}
+
+.login-box {
+    max-width: 400px;
+}
+
+.signin {
+    padding-top: 20px;
+}
+
+.login {
+    padding-top: 10px;
+}
+
+.signin,
+.login {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .signin-text,
+    .signin-form {
+        width: 48%;
+        padding: 0 1%;
+    }
+
+    .signin-form,
+    .login-form {
+
+        label,
+        input[type="email"],
+        input[type="password"] {
+            display: block;
+            width: 100%;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            box-sizing: border-box;
+            height: 35px;
+            padding: 0 10px 0 30px;
+            margin-bottom: 8px;
+            font-size: 18px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border: 1px solid #CCCCCC;
+
+        }
+
+
+        input[type="submit"] {
+            float: right;
+            padding: 5px 35px;
+            margin-top: 30px;
+            background: #FF5E45;
+            color: #fff;
+            font-size: 16px;
+            border: 0 none;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+
+            @include iphone5 {
+                float: none;
+                display: block;
+                width: 100%;
+
+            }
+        }
+
+        input[type="submit"]:hover,
+        input[type="submit"]:focus {
+            background: rgb(187, 85, 30);
+        }
+
+
+        small a {
+            font-size: 13px;
+            color: #FF5E45;
+        }
+
+        .icon-group {
+            position: relative;
+
+            i {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+
+            }
+        }
+
+        // input:-moz-placeholder,
+        // input::-moz-placeholder,
+        // input:-ms-input-placeholder,
+        input::-webkit-input-placeholder {
+            font-size: 14px;
+        }
+
+
+
+    }
+
+    @include iphone5 {
+        display: block;
+
+        .signin-text,
+        .signin-form {
+            width: 100%;
+            padding: 0;
+        }
+
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    @include iphone5 {
+        .signin-form {
+            margin-top: 20px;
+        }
+
+    }
+}
+
+
+.active {
+    display: block;
+}
