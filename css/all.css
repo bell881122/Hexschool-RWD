@@ -539,7 +539,8 @@ h5 {
       position: absolute;
       top: 10px;
       left: 10px; }
-    .cart .items-list .fa-heart:hover {
+    .cart .items-list .fa-heart:hover,
+    .cart .items-list .heart-active {
       font-weight: bold; }
   @media (max-width: 768px) {
     .cart {
